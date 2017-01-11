@@ -1,11 +1,3 @@
-//
-//  MasterViewController.m
-//  IntranetClient
-//
-//  Created by Sergio del Amo on 10/01/2017.
-//  Copyright © 2017 OCI. All rights reserved.
-//
-
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AnnouncementsFetcherDelegate.h"
