@@ -11,7 +11,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic, strong) Announcement *announcement;
+@property (nonatomic, assign) NSNumber *announcementPrimaryKey;
 
 @end
 

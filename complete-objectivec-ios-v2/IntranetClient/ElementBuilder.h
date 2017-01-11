@@ -16,4 +16,9 @@
       invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
       missingDataErrorCode:(NSInteger)missingDataErrorCode
                errorDomain:(NSString *)errorDomain;
+
+- (NSDictionary *)parseJSON:(NSString *)objectNotation
+                      error:(NSError **)error
+       invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
+                errorDomain:(NSString *)errorDomain;
 @end

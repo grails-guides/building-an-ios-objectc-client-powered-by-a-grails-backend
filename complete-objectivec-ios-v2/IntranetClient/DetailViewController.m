@@ -8,12 +8,17 @@
 
 #import "DetailViewController.h"
 #import "Announcement.h"
+#import "AnnouncementFetcher.h"
 
-@interface DetailViewController () <UIWebViewDelegate>
+@interface DetailViewController () <UIWebViewDelegate, AnnouncementFetcherDelegate>
 
 @property ( nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property ( nonatomic, weak) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+
+@property ( nonatomic, strong ) AnnouncementFetcher *fetcher;
+
+@property (nonatomic, strong) Announcement *announcement;
 
 @end
 
@@ -34,14 +39,11 @@
     self.webView.delegate = self;
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    if ( self.announcementPrimaryKey ) {
+        [self.fetcher fetchAnnouncement:self.announcementPrimaryKey];
+    }
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - Managing the detail item
 
@@ -60,6 +62,27 @@
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[self activityIndicatorView] stopAnimating];
+}
+
+#pragma mark - AnnouncementFetcherDelegate
+
+- (void)announcementFetchingFailed {
+    [[self activityIndicatorView] stopAnimating];
+}
+
+- (void)announcementFetched:(Announcement *)announcement {
+    [[self activityIndicatorView] stopAnimating];
+    self.announcement = announcement;
+}
+
+
+#pragma mark - Lazy
+
+- (AnnouncementFetcher *)fetcher {
+    if(!_fetcher) {
+        _fetcher = [[AnnouncementFetcher alloc] initWithDelegate:self];
+    }
+    return _fetcher;
 }
 
 @end

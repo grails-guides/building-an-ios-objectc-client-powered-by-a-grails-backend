@@ -26,6 +26,21 @@ static NSString *kJSONKeyBody = @"body";
                    errorDomain:kAnnouncementBuilderErrorDomain];
 }
 
+- (Announcement *)announcementFromJSON:(NSString *)objectNotation
+                                 error:(NSError **)error {
+    
+    NSDictionary *parsedObject = [self parseJSON:objectNotation
+                                           error:error
+                            invalidJSONErrorCode:kAnnouncementBuilderInvalidJSONError
+                                     errorDomain:kAnnouncementBuilderErrorDomain];
+    
+    return [self newElementWithDictionary:parsedObject
+                                    error:error
+                     invalidJSONErrorCode:kAnnouncementBuilderInvalidJSONError
+                     missingDataErrorCode:kAnnouncementBuilderMissingDataError
+                              errorDomain:kAnnouncementBuilderErrorDomain];    
+}
+
 - (id)newElementWithDictionary:(NSDictionary *)dict
                          error:(NSError **)error
           invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode

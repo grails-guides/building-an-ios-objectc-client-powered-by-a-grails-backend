@@ -69,9 +69,9 @@ static NSString *kSegueShowDetail = @"showDetail";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:kSegueShowDetail]) {
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        if([sender isKindOfClass:[Announcement class]]) {
-            Announcement *announcement = (Announcement *)sender;
-            controller.announcement = announcement;
+        if([sender isKindOfClass:[NSNumber class]]) {
+            NSNumber *announcementPrimaryKey = (NSNumber *)sender;
+            controller.announcementPrimaryKey = announcementPrimaryKey;
         }
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
@@ -83,7 +83,7 @@ static NSString *kSegueShowDetail = @"showDetail";
 - (void)announcementTapped:(NSNotification *)notification {
     if([[notification object] isKindOfClass:[Announcement class]]) {
         Announcement *announcement = (Announcement *)[notification object];
-        [self performSegueWithIdentifier:kSegueShowDetail sender:announcement];
+        [self performSegueWithIdentifier:kSegueShowDetail sender:announcement.primaryKey];
     }
 }
 

@@ -17,6 +17,4 @@
 
 - (void)fetchAnnouncements;
 
-- (void)fetchAnnouncement:(NSNumber *)primaryKey;
-
 @end

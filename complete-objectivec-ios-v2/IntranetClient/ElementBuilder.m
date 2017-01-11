@@ -57,27 +57,15 @@
     return [results copy];
 }
 
-
 - (BOOL)isElementValid:(id)el {
     // This may be overriden in a subclass
     return YES;
 }
 
-- (id)newElementWithDictionary:(NSDictionary *)dict
-                         error:(NSError **)error
-          invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
-          missingDataErrorCode:(NSInteger)missingDataErrorCode
-                   errorDomain:(NSString *)errorDomain {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
-}
-
-
-- (id)parseJSON:(NSString *)objectNotation
-          error:(NSError **)error
-invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
-    errorDomain:(NSString *)errorDomain  {
+- (NSDictionary *)parseJSON:(NSString *)objectNotation
+                      error:(NSError **)error
+       invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
+                errorDomain:(NSString *)errorDomain  {
     
     NSParameterAssert(objectNotation != nil);
     id jsonObject;
@@ -89,7 +77,8 @@ invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
                                                      options:0
                                                        error:&localError];
     }
-    if (jsonObject == nil) {
+    NSDictionary *parsedObject = (id)jsonObject;
+    if (parsedObject == nil) {
         if (error != NULL) {
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
             if (localError != nil) {
@@ -99,7 +88,18 @@ invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
         }
         return nil;
     }
-    return jsonObject;
+    return parsedObject;
+}
+
+
+- (id)newElementWithDictionary:(NSDictionary *)dict
+                         error:(NSError **)error
+          invalidJSONErrorCode:(NSInteger)invalidJSONErrorCode
+          missingDataErrorCode:(NSInteger)missingDataErrorCode
+                   errorDomain:(NSString *)errorDomain {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
 }
 
 + (id)objectOrNull:(id)object {
