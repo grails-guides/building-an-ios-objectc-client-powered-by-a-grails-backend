@@ -1,11 +1,16 @@
 #import <Foundation/Foundation.h>
 
-static NSString *kServerUrl = @"http://192.168.1.41:8080"; // <1>
-static NSString *kApiVersion = @"1.0"; // <2>
-static NSString *kAnnouncementsResourcePath = @"announcements"; // <3>
+static NSString *kServerUrl = @"http://192.168.1.41:8080";
+static NSString *kApiVersion = @"1.0";
+static NSString *kAnnouncementsResourcePath = @"announcements";
+static NSInteger FAST_TIME_INTERVAL = 5.0;
 
 @interface GrailsFetcher : NSObject
 
-- (NSDictionary *)headers;
+@property (nonatomic, strong) NSURLSession *session;
+
+- (NSURLRequest *)getURLRequestWithUrlString:(NSString *)urlString
+                                 cachePolicy:(NSURLRequestCachePolicy)cachePolicy
+                             timeoutInterval:(NSTimeInterval)timeoutInterval;
 
 @end

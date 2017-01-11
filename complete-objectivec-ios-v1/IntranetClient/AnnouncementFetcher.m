@@ -2,11 +2,8 @@
 #import "AnnouncementsFetcherDelegate.h"
 #import "AnnouncementBuilder.h"
 
-static NSInteger FAST_TIME_INTERVAL = 5.0;
 
-@interface AnnouncementsFetcher () <NSURLSessionDelegate>
-
-@property (nonatomic) NSURLSession *session;
+@interface AnnouncementsFetcher ()
 
 @property ( nonatomic, weak) id<AnnouncementsFetcherDelegate> delegate;
 
@@ -18,11 +15,6 @@ static NSInteger FAST_TIME_INTERVAL = 5.0;
 
 - (id)initWithDelegate:(id<AnnouncementsFetcherDelegate>)delegate {
     if(self = [super init]) {
-        NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        self.session = [NSURLSession sessionWithConfiguration:configuration
-                                                     delegate:self
-                                                delegateQueue:[NSOperationQueue mainQueue]];
-        
         self.delegate = delegate;
         self.builder = [[AnnouncementBuilder alloc] init];
     }
@@ -69,47 +61,14 @@ static NSInteger FAST_TIME_INTERVAL = 5.0;
 }
 
 - (NSURLRequest *)announcementsURLRequest {
-    NSString *urlStr = [[kServerUrl stringByAppendingString:@"/"] stringByAppendingString:kAnnouncementsResourcePath];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url
-                                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                          timeoutInterval:FAST_TIME_INTERVAL];
-    [urlRequest setHTTPMethod:@"GET"];
-    
-    [[self headers] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL * stop) {
-        [urlRequest setValue:obj forHTTPHeaderField:key];
-    }];
-    return urlRequest;
+    NSString *urlStr = [self announcementsURLString];
+    return [super getURLRequestWithUrlString:urlStr
+                                 cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                             timeoutInterval:FAST_TIME_INTERVAL];
 }
 
-- (void)fetchAnnouncement:(NSNumber *)primaryKey {
-    
-}
-
-
-#pragma mark - NSURLSessionDelegate
-
-- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error {
-    
-}
-
-/* If implemented, when a connection level authentication challenge
- * has occurred, this delegate will be given the opportunity to
- * provide authentication credentials to the underlying
- * connection. Some types of authentication will apply to more than
- * one request on a given connection to a server (SSL Server Trust
- * challenges).  If this delegate message is not implemented, the
- * behavior will be to use the default handling, which may involve user
- * interaction.
- */
-- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
- completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler {
-    
-}
-
-
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session NS_AVAILABLE_IOS(7_0) {
-    
+- (NSString *)announcementsURLString {
+    return [NSString stringWithFormat:@"%@/%@", kServerUrl, kAnnouncementsResourcePath];
 }
 
 @end
