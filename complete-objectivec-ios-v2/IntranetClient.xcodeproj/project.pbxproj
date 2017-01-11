@@ -31,6 +31,7 @@
 		7C743E171E2631CA0004B940 /* AnnouncementsTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E161E2631CA0004B940 /* AnnouncementsTableViewDelegate.m */; };
 		7C743E191E2640F90004B940 /* AnnouncementFetcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E181E2640F90004B940 /* AnnouncementFetcher.h */; };
 		7C743E1B1E26414A0004B940 /* AnnouncementFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E1A1E26414A0004B940 /* AnnouncementFetcher.m */; };
+		7C743E1E1E2647EE0004B940 /* announcement.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C743E1D1E2647EE0004B940 /* announcement.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		7C743E181E2640F90004B940 /* AnnouncementFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementFetcher.h; sourceTree = "<group>"; };
 		7C743E1A1E26414A0004B940 /* AnnouncementFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementFetcher.m; sourceTree = "<group>"; };
 		7C743E1C1E2643AD0004B940 /* AnnouncementFetcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementFetcherDelegate.h; sourceTree = "<group>"; };
+		7C743E1D1E2647EE0004B940 /* announcement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = announcement.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,36 +141,13 @@
 		7C743DC11E253AA50004B940 /* IntranetClient */ = {
 			isa = PBXGroup;
 			children = (
-				7C743DC51E253AA50004B940 /* AppDelegate.h */,
-				7C743DC61E253AA50004B940 /* AppDelegate.m */,
-				7C743DC81E253AA50004B940 /* MasterViewController.h */,
-				7C743DC91E253AA50004B940 /* MasterViewController.m */,
-				7C743DCB1E253AA50004B940 /* DetailViewController.h */,
-				7C743DCC1E253AA50004B940 /* DetailViewController.m */,
+				7C743E1F1E2648AF0004B940 /* UKit */,
 				7C743DCE1E253AA50004B940 /* Main.storyboard */,
 				7C743DD11E253AA50004B940 /* Assets.xcassets */,
 				7C743DD31E253AA50004B940 /* LaunchScreen.storyboard */,
 				7C743DD61E253AA50004B940 /* Info.plist */,
 				7C743DC21E253AA50004B940 /* Supporting Files */,
-				7C743DF81E253C040004B940 /* Announcement.m */,
-				7C743DFA1E253C190004B940 /* Announcement.h */,
-				7C743DFB1E253C6E0004B940 /* AnnouncementBuilder.h */,
-				7C743DFC1E253DD20004B940 /* AnnouncementBuilder.m */,
-				7C743DFE1E253F8D0004B940 /* ElementBuilderPr.h */,
-				7C743DFF1E253FCD0004B940 /* ElementBuilder.h */,
-				7C743E011E2540120004B940 /* ElementBuilder.m */,
-				7C743E071E26280D0004B940 /* AnnouncementsFetcher.h */,
-				7C743E091E2628320004B940 /* AnnouncementsFetcher.m */,
-				7C743E0B1E2628AB0004B940 /* AnnouncementsFetcherDelegate.h */,
-				7C743E0C1E2629FB0004B940 /* GrailsFetcher.h */,
-				7C743E0E1E262A220004B940 /* GrailsFetcher.m */,
-				7C743E101E26303F0004B940 /* AnnouncementsTableViewDataSource.h */,
-				7C743E121E26304C0004B940 /* AnnouncementsTableViewDataSource.m */,
-				7C743E141E2631B90004B940 /* AnnouncementsTableViewDelegate.h */,
-				7C743E161E2631CA0004B940 /* AnnouncementsTableViewDelegate.m */,
-				7C743E181E2640F90004B940 /* AnnouncementFetcher.h */,
-				7C743E1A1E26414A0004B940 /* AnnouncementFetcher.m */,
-				7C743E1C1E2643AD0004B940 /* AnnouncementFetcherDelegate.h */,
+				7C743E201E2648B70004B940 /* Foundation */,
 			);
 			path = IntranetClient;
 			sourceTree = "<group>";
@@ -187,6 +166,7 @@
 				7C743DE11E253AA50004B940 /* Info.plist */,
 				7C743E031E2622DA0004B940 /* AnnouncementBuilderTests.m */,
 				7C743E051E26237E0004B940 /* announcements.json */,
+				7C743E1D1E2647EE0004B940 /* announcement.json */,
 			);
 			path = IntranetClientTests;
 			sourceTree = "<group>";
@@ -198,6 +178,45 @@
 				7C743DEC1E253AA50004B940 /* Info.plist */,
 			);
 			path = IntranetClientUITests;
+			sourceTree = "<group>";
+		};
+		7C743E1F1E2648AF0004B940 /* UKit */ = {
+			isa = PBXGroup;
+			children = (
+				7C743DC51E253AA50004B940 /* AppDelegate.h */,
+				7C743DC61E253AA50004B940 /* AppDelegate.m */,
+				7C743DC81E253AA50004B940 /* MasterViewController.h */,
+				7C743DC91E253AA50004B940 /* MasterViewController.m */,
+				7C743DCB1E253AA50004B940 /* DetailViewController.h */,
+				7C743DCC1E253AA50004B940 /* DetailViewController.m */,
+				7C743E101E26303F0004B940 /* AnnouncementsTableViewDataSource.h */,
+				7C743E121E26304C0004B940 /* AnnouncementsTableViewDataSource.m */,
+				7C743E141E2631B90004B940 /* AnnouncementsTableViewDelegate.h */,
+				7C743E161E2631CA0004B940 /* AnnouncementsTableViewDelegate.m */,
+			);
+			name = UKit;
+			sourceTree = "<group>";
+		};
+		7C743E201E2648B70004B940 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				7C743DF81E253C040004B940 /* Announcement.m */,
+				7C743DFA1E253C190004B940 /* Announcement.h */,
+				7C743DFB1E253C6E0004B940 /* AnnouncementBuilder.h */,
+				7C743DFC1E253DD20004B940 /* AnnouncementBuilder.m */,
+				7C743DFE1E253F8D0004B940 /* ElementBuilderPr.h */,
+				7C743DFF1E253FCD0004B940 /* ElementBuilder.h */,
+				7C743E011E2540120004B940 /* ElementBuilder.m */,
+				7C743E071E26280D0004B940 /* AnnouncementsFetcher.h */,
+				7C743E091E2628320004B940 /* AnnouncementsFetcher.m */,
+				7C743E0B1E2628AB0004B940 /* AnnouncementsFetcherDelegate.h */,
+				7C743E0C1E2629FB0004B940 /* GrailsFetcher.h */,
+				7C743E0E1E262A220004B940 /* GrailsFetcher.m */,
+				7C743E181E2640F90004B940 /* AnnouncementFetcher.h */,
+				7C743E1A1E26414A0004B940 /* AnnouncementFetcher.m */,
+				7C743E1C1E2643AD0004B940 /* AnnouncementFetcherDelegate.h */,
+			);
+			name = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C743E1E1E2647EE0004B940 /* announcement.json in Resources */,
 				7C743E061E26237E0004B940 /* announcements.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

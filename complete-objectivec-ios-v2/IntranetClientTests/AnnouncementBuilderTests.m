@@ -14,6 +14,7 @@
 {
     AnnouncementBuilder *builder;
     NSString *announcementsJSON;
+    NSString *announcementJSON;
 }
 @end
 
@@ -22,15 +23,18 @@
 - (void)setUp {
     [super setUp];
     builder = [[AnnouncementBuilder alloc] init];
-    announcementsJSON = [self fixture];
+    announcementsJSON = [self fixtureAnnouncements];
+    announcementJSON = [self fixtureAnnouncement];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    builder = nil;
+    announcementsJSON = nil;
+    announcementJSON = nil;
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testAnnouncementsFromJSON {
     NSError *error;
     XCTAssertNotNil(announcementsJSON);
     NSArray *announcements = [builder announcementsFromJSON:announcementsJSON error:&error];
@@ -46,17 +50,35 @@
     }
 }
 
+- (void)testAnnouncementFromJSON {
+    NSError *error;
+    XCTAssertNotNil(announcementsJSON);
+    Announcement *announcement = [builder announcementFromJSON:announcementJSON error:&error];
+    XCTAssertNil(error);
+    XCTAssertNotNil(announcement.title);
+    XCTAssertNotNil(announcement.primaryKey);
+    XCTAssertNotNil(announcement.body);
+}
+
 #pragma mark - Private methods
 
-- (NSString *)fixture {
+- (NSString *)loadJSONString:(NSString *)resourceName {
     NSBundle *bundle =  [NSBundle bundleForClass:[AnnouncementBuilderTests class]];
-    NSString *path = [bundle pathForResource:@"announcements" ofType:@"json" inDirectory:nil];
+    NSString *path = [bundle pathForResource:resourceName ofType:@"json" inDirectory:nil];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{} completionHandler:nil];
     NSString* content = [NSString stringWithContentsOfFile:path
                                                   encoding:NSUTF8StringEncoding
                                                      error:NULL];
     
     return content;
+}
+
+- (NSString *)fixtureAnnouncement {
+    return [self loadJSONString:@"announcement"];
+}
+
+- (NSString *)fixtureAnnouncements {
+    return [self loadJSONString:@"announcements"];
 }
 
 @end
