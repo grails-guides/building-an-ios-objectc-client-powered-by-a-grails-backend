@@ -11,7 +11,9 @@
         id obj = self.announcements[indexPath.row];
         if ( [obj isKindOfClass:[Announcement class]]) {
             Announcement *announcement = (Announcement *)obj;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAnnouncementTappedNotification object:announcement userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kAnnouncementTappedNotification // <1>
+                                                                object:announcement
+                                                              userInfo:nil];
         }
     }
 }

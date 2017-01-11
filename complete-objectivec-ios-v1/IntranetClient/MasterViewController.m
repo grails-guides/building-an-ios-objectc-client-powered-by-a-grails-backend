@@ -35,7 +35,7 @@ static NSString *kSegueShowDetail = @"showDetail";
     [super viewWillAppear:animated];
     
     [self registerNotifications];
-    [self fetchAnnouncements];
+    [self fetchAnnouncements]; // <1>
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -92,8 +92,6 @@ static NSString *kSegueShowDetail = @"showDetail";
 
 - (void)announcementsFetchingFailed {
     [self setNetworkActivityIndicator:NO];
-    
-    NSLog(@"announcementsFetchingFailed");
 }
 
 - (void)announcementsFetched:(NSArray *)announcements {
@@ -105,8 +103,7 @@ static NSString *kSegueShowDetail = @"showDetail";
     if ( [self.tableViewDelegate isKindOfClass:[AnnouncementsTableViewDelegate class]]) {
         ((AnnouncementsTableViewDelegate *)self.tableViewDelegate).announcements = announcements;
     }
-    [self.tableView reloadData];
-    
+    [self.tableView reloadData];  // <2>    
 }
 
 #pragma mark - Lazy

@@ -3,7 +3,6 @@
 #import "AnnouncementBuilder.h"
 
 static NSInteger FAST_TIME_INTERVAL = 5.0;
-static NSString *kAnnouncementsResourcePath = @"announcements";
 
 @interface AnnouncementsFetcher () <NSURLSessionDelegate>
 
