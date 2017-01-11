@@ -22,7 +22,7 @@
 		7C743E041E2622DA0004B940 /* AnnouncementBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E031E2622DA0004B940 /* AnnouncementBuilderTests.m */; };
 		7C743E061E26237E0004B940 /* announcements.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C743E051E26237E0004B940 /* announcements.json */; };
 		7C743E081E26280D0004B940 /* AnnouncementsFetcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E071E26280D0004B940 /* AnnouncementsFetcher.h */; };
-		7C743E0A1E2628320004B940 /* AnnouncementFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E091E2628320004B940 /* AnnouncementFetcher.m */; };
+		7C743E0A1E2628320004B940 /* AnnouncementsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E091E2628320004B940 /* AnnouncementsFetcher.m */; };
 		7C743E0D1E2629FB0004B940 /* GrailsFetcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E0C1E2629FB0004B940 /* GrailsFetcher.h */; };
 		7C743E0F1E262A220004B940 /* GrailsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E0E1E262A220004B940 /* GrailsFetcher.m */; };
 		7C743E111E26303F0004B940 /* AnnouncementsTableViewDataSource.h in Sources */ = {isa = PBXBuildFile; fileRef = 7C743E101E26303F0004B940 /* AnnouncementsTableViewDataSource.h */; };
@@ -76,7 +76,7 @@
 		7C743E031E2622DA0004B940 /* AnnouncementBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementBuilderTests.m; sourceTree = "<group>"; };
 		7C743E051E26237E0004B940 /* announcements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = announcements.json; sourceTree = "<group>"; };
 		7C743E071E26280D0004B940 /* AnnouncementsFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementsFetcher.h; sourceTree = "<group>"; };
-		7C743E091E2628320004B940 /* AnnouncementFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementFetcher.m; sourceTree = "<group>"; };
+		7C743E091E2628320004B940 /* AnnouncementsFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementsFetcher.m; sourceTree = "<group>"; };
 		7C743E0B1E2628AB0004B940 /* AnnouncementsFetcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementsFetcherDelegate.h; sourceTree = "<group>"; };
 		7C743E0C1E2629FB0004B940 /* GrailsFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrailsFetcher.h; sourceTree = "<group>"; };
 		7C743E0E1E262A220004B940 /* GrailsFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrailsFetcher.m; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				7C743DFF1E253FCD0004B940 /* ElementBuilder.h */,
 				7C743E011E2540120004B940 /* ElementBuilder.m */,
 				7C743E071E26280D0004B940 /* AnnouncementsFetcher.h */,
-				7C743E091E2628320004B940 /* AnnouncementFetcher.m */,
+				7C743E091E2628320004B940 /* AnnouncementsFetcher.m */,
 				7C743E0B1E2628AB0004B940 /* AnnouncementsFetcherDelegate.h */,
 				7C743E0C1E2629FB0004B940 /* GrailsFetcher.h */,
 				7C743E0E1E262A220004B940 /* GrailsFetcher.m */,
@@ -332,7 +332,7 @@
 				7C743E131E26304C0004B940 /* AnnouncementsTableViewDataSource.m in Sources */,
 				7C743DFD1E253DD20004B940 /* AnnouncementBuilder.m in Sources */,
 				7C743DC41E253AA50004B940 /* main.m in Sources */,
-				7C743E0A1E2628320004B940 /* AnnouncementFetcher.m in Sources */,
+				7C743E0A1E2628320004B940 /* AnnouncementsFetcher.m in Sources */,
 				7C743E0F1E262A220004B940 /* GrailsFetcher.m in Sources */,
 				7C743E081E26280D0004B940 /* AnnouncementsFetcher.h in Sources */,
 				7C743E021E2540120004B940 /* ElementBuilder.m in Sources */,

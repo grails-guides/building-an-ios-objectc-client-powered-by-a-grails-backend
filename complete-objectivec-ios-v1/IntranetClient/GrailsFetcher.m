@@ -40,7 +40,7 @@
 #pragma mark - Private
 
 - (NSDictionary *)headers {
-    return @{@"Accept-Version": kApiVersion};
+    return @{@"Accept-Version": kApiVersion}; // <1>
 }
 
 @end

@@ -1,4 +1,4 @@
-We are going to use create Controller to handle the version 2 of the API. We are going to use a Criteria
+We are going to use create a new Controller to handle the version 2 of the API. We are going to use a Criteria
 query with a projection to fetch only the id and title of the announcements.
 
 [source,groovy]

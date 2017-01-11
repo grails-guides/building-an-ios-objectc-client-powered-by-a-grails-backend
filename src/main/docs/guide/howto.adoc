@@ -20,25 +20,22 @@ and configured to use the hibernate feature with an H2 database.
 
 TIP: You can go right to the completed Grails example if you `cd` into `{githubSlug}/complete`
 
-### To follow the Android part:
+### To follow the iOS part:
 
-* `cd` into `{githubSlug}/initial-android`
+* `cd` into `{githubSlug}/initial-objectivec-ios`
 
 * Head on over to the next section
 
 
-Alternatively, you can create an android app using the New Project wizard of Android Studio as illustrated in
-the next screenshots.
+Alternatively, you can create an iOS app using the New Project wizard of
+Xcode Studio as illustrated in the next screenshots.
 
-image::android-studio-newproject1.png[]
+image::create_new_project.png[]
 
-image::android-studio-newproject2.png[]
+image::choose_master-detail-application.png[]
 
-image::android-studio-newproject3.png[]
+image::choose_objective_c.png[]
 
-image::android-studio-newproject4.png[]
+TIP: You can go right to the completed version 1 of the iOS example if you `cd` into `{githubSlug}/complete-objectivec-ios-v1`
 
-
-TIP: You can go right to the completed version 1 of the Android example if you `cd` into `{githubSlug}/complete-android-v1`
-
-TIP: You can go right to the completed version 2 of the Android example if you `cd` into `{githubSlug}/complete-android-v2`
+TIP: You can go right to the completed version 2 of the iOS example if you `cd` into `{githubSlug}/complete-objectivec-ios-v2`

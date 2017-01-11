@@ -1,4 +1,4 @@
-gettingStarted: 
+gettingStarted:
   title: Getting Started
   requirements: What you will need
   howto: How to complete the guide
@@ -13,15 +13,18 @@ writingTheGrailsApp:
   bootstrap: Loading test data
   v1FunctionalTests: Functional tests
   runningTheApp: Running the Application
-writingTheAndroidApp:
-    title: Writing the Android Application
-    androidOverview: Fetching the Announcements
+writingTheiOSApp:
+    title: Writing the iOS Application
+    iOSOverview: Fetching the Announcements
+    iosModel: Model
+    iosJsonToModel: Json to Model
+    appTransportSecurity: App Transport Security
     networkingCode: Networking code
-    detailActivity: Detail Activity
+    detailViewController: Detail View Controller
 version2:
     title: API version 2.0
     v2Controller: Grails V2 Changes
     v2FunctionalTests: Api 2.0 Functional tests
-    v2Android: Android V2 Changes
+    v2iOS: iOS V2 Changes
 conclusion:
     title: Conclusion
